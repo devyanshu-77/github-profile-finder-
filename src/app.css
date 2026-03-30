@@ -12,6 +12,7 @@
     min-height: 100vh;
     display: grid;
     grid-template-rows: 60px 1fr;
+    gap: 20px;
 }
 
 .layout header {
@@ -49,3 +50,11 @@
         background: #0099d4;
     }
 }
+
+.profile-card {
+    width: clamp(350px, 450px, 500px);
+    padding: 20px;
+    background-color: gray;
+    border-radius: 20px;
+}
+
