@@ -1,60 +1,138 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .layout {
-    padding: 20px 50px;
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: 60px 1fr;
-    gap: 20px;
+  padding: 20px 50px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  gap: 20px;
 }
 
 .layout header {
-    background-color: beige;
-    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: beige;
+  box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .layout header input {
-    padding: 5px 8px;
-    border-radius: 10px 0px 0px 10px;
-    outline: none;
-    border: 2px solid #000;
-    font-size: 1rem;
-    font-weight: 600;
+  padding: 5px 8px;
+  border-radius: 10px 0px 0px 10px;
+  outline: none;
+  border: 2px solid #000;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .layout header button {
-    padding: 5px 8px;
-    outline: none;
-    border: 2px solid #111111;
-    border-left: none;
-    border-radius: 0px 10px 10px 0px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
-    background: #00BFFF;
-    transition: all 0.15s linear;
+  padding: 5px 8px;
+  outline: none;
+  border: 2px solid #111111;
+  border-left: none;
+  border-radius: 0px 10px 10px 0px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  background: #00bfff;
+  transition: all 0.15s linear;
 
-    &:hover {
-        background: #0099d4;
-    }
+  &:hover {
+    background: #0099d4;
+  }
 }
 
 .profile-card {
-    width: clamp(350px, 450px, 500px);
-    padding: 20px;
-    background-color: gray;
-    border-radius: 20px;
+  width: 350px;
+  background-color: #262930;
+  padding: 20px 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
+.card-header {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.header-img-wrapper {
+  width: fit-content;
+  border-radius: 100%;
+}
+
+.header-img-wrapper img {
+  height: 80px;
+  border-radius: 100%;
+}
+
+.user-name {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.user-bio {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: darkgray;
+}
+
+.card-data {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.data-bio-wrapper {
+  height: 30%;
+}
+
+.data-bio-wrapper .user-bio {
+  color: #fff;
+}
+
+.user-stats {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.user-stats p {
+  text-align: center;
+  padding: 0px 10px;
+  color: #fff;
+}
+
+.user-stats p span {
+  color: darkgray;
+}
+
+.user-stats p:nth-child(1) {
+  border-right: 2px solid #fff;
+}
+.user-stats p:nth-child(2) {
+  border-right: 2px solid #fff;
+}
+
+.user-links p {
+  font-size: 1rem;
+  color: #dadada;
+}
