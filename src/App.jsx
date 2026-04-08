@@ -1,11 +1,8 @@
-import "./app.css"
-import Layout from "./components/Layout.jsx"
+import "./app.css";
+import Layout from "./components/Layout.jsx";
 
 function App() {
-
-  return (
-      <Layout />
-  )
+  return <Layout />;
 }
 
-export default App
+export default App;

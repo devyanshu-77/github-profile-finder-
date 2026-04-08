@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -11,9 +10,16 @@
     sans-serif;
 }
 
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
 .layout {
   padding: 20px 50px;
-  min-height: 100vh;
+  min-height: 100%;
+  width: 100%;
   display: grid;
   grid-template-rows: 60px 1fr;
   gap: 20px;
@@ -22,7 +28,7 @@
 .layout header {
   background-color: beige;
   box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  border-radius: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,10 +61,16 @@
   }
 }
 
+.layout main {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+}
+
 .profile-card {
   width: 350px;
   background-color: #262930;
-  padding: 20px 20px;
+  padding: 20px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -84,7 +96,7 @@
 }
 
 .user-name {
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: #fff;
 }
@@ -117,11 +129,13 @@
 
 .user-stats p {
   text-align: center;
+  font-weight: 600;
   padding: 0px 10px;
   color: #fff;
 }
 
 .user-stats p span {
+  font-weight: 500;
   color: darkgray;
 }
 
@@ -135,4 +149,142 @@
 .user-links p {
   font-size: 1rem;
   color: #dadada;
+}
+
+.user-repos-wrapper {
+  color: #fff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.repos-heading {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.repo-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.repo {
+  padding: 15px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 420px;
+  background-color: #262930;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+}
+
+.repo-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.repo-description {
+  color: darkgray;
+}
+
+.last-updated {
+  font-weight: 400;
+  color: gray;
+}
+
+.repo-stats-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Responsive */
+@media screen and (max-width: 576px) {
+  .layout {
+    padding: 10px;
+    gap: 15px;
+    display: grid;
+    grid-template-rows: 40px 1fr;
+    max-width: 100%;
+  }
+  .layout header {
+    max-width: 100%;
+  }
+  header input {
+    width: 75%;
+    height: 100%;
+  }
+  header button {
+    width: 25%;
+    height: 100%;
+  }
+  .layout main {
+    gap: 20px;
+    flex-direction: column;
+  }
+  main .user-repos-wrapper {
+    gap: 20px;
+    width: 100%;
+  }
+  main .profile-card {
+    place-self: center;
+  }
+  .profile-card {
+    width: 80%;
+  }
+  .repo-container {
+    gap: 15px;
+    grid-template-columns: 1fr;
+  }
+  .repo {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .layout {
+    padding: 20px;
+  }
+  .layout header {
+    border-radius: 10px;
+    height: fit-content;
+    width: 90%;
+    place-self: center;
+  }
+  header input {
+    height: 45px;
+    width: 100%;
+  }
+  header button {
+    height: 70%;
+    width: 20%;
+    height: 45px;
+  }
+  .layout main {
+    flex-direction: column;
+    gap: 40px;
+  }
+  main .profile-card {
+    gap: 30px;
+    width: 90%;
+    place-self: center;
+  }
+  main .user-repos-wrapper {
+    gap: 40px;
+    width: 100%;
+  }
+  .repos-heading {
+    text-align: center;
+  }
+  .repo-container {
+    place-items: center;
+    grid-template-columns: 1fr;
+  }
+  .repo {
+    width: 95%;
+  }
 }

@@ -18,7 +18,7 @@ function ProfileCard() {
           <p className="user-bio">This is my bio I am an enginner at google</p>
         </div>
         <div className="user-stats-wrapper">
-          <p className="user-stats">
+          <div className="user-stats">
             <p>
               3.1k <br /> <span>Followers</span>
             </p>
@@ -30,7 +30,7 @@ function ProfileCard() {
               <br />
               <span> Repos</span>
             </p>
-          </p>
+          </div>
         </div>
 
         <div className="user-links">
