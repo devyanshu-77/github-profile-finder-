@@ -1,4 +1,4 @@
-function ProfileCard() {
+function ProfileCard({ userData }) {
   return (
     <div className="profile-card">
       <div className="card-header">
