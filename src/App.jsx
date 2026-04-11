@@ -13,20 +13,24 @@ function App() {
   const [err, setErr] = useState(null);
   async function fetchUserData() {
     setIsLoading(true);
-    const res = await fetch(`https://api.github.com/users/${userName}`);
-    const data = await res.json();
-
-    if (!res.Response) {
-      console.log(res.Response);
-      if (res.Response.status === 404) {
-        setErr("User not found");
-        setUserData(false);
-        setIsLoading(false);
+    try {
+      const res = await fetch(`https://api.github.com/users/${userName}`);
+      const data = await res.json();
+      console.log(data);
+      setUserData(data);
+      setIsLoading(false);
+      if (!res.ok) {
+        setUserData(null);
+        if (res.status === 404) {
+          setErr("User not found");
+          return;
+        }
+        setErr("Oops something went wrong try again later");
+        return;
       }
+    } catch (error) {
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
-    setUserData(data);
   }
 
   return (
@@ -34,9 +38,9 @@ function App() {
       <Header fetchUserData={fetchUserData} setUserName={setUserName} />
       <main>
         {isLoading && <Loading />}
-        {userData ? (
+        {userData && !isLoading ? (
           <>
-            <ProfileCard />
+            <ProfileCard userData={userData} />
             <Repos />
           </>
         ) : isLoading ? null : (

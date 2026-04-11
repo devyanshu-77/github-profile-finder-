@@ -9,33 +9,39 @@ function ProfileCard({ userData }) {
           />
         </div>
         <div className="header-name-wrapper">
-          <p className="user-name">Name</p>
-          <p className="user-bio">User Name</p>
+          <p className="user-name">{userData.name}</p>
+          <p className="user-bio">{userData.login}</p>
         </div>
       </div>
       <div className="card-data">
         <div className="data-bio-wrapper">
-          <p className="user-bio">This is my bio I am an enginner at google</p>
+          <p className="user-bio">
+            {userData.bio ? userData.bio : "Bio not set"}
+          </p>
         </div>
         <div className="user-stats-wrapper">
           <div className="user-stats">
             <p>
-              3.1k <br /> <span>Followers</span>
+              {userData.followers} <br /> <span>Followers</span>
             </p>
             <p>
-              742 <br /> <span>Following</span>
+              {userData.following} <br /> <span>Following</span>
             </p>
             <p>
-              189
+              {userData.public_repos}
               <br />
-              <span> Repos</span>
+              <span>Repos</span>
             </p>
           </div>
         </div>
 
         <div className="user-links">
-          <p className="user-location">locatoin</p>
-          <p className="user-link">links</p>
+          <p className="user-location">
+            {userData.location ? userData.location : "Location not set"}
+          </p>
+          <p className="user-link">
+            {userData.hireable ? userData.hireable : "Hireable not set"}
+          </p>
         </div>
       </div>
     </div>
