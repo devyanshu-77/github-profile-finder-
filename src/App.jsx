@@ -8,18 +8,25 @@ import Loading from "./components/Loading.jsx";
 
 function App() {
   const [userData, setUserData] = useState(null);
+  const [userRepos, setUserRepos] = useState(null);
   const [userName, setUserName] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const [err, setErr] = useState(null);
   async function fetchUserData() {
     setIsLoading(true);
     try {
-      const res = await fetch(`https://api.github.com/users/${userName}`);
-      const data = await res.json();
-      console.log(data);
-      setUserData(data);
+      const userRes = await fetch(`https://api.github.com/users/${userName}`);
+      const reposRes = await fetch(
+        `https://api.github.com/users/${userName}/repos`,
+      );
+      const userData = await userRes.json();
+      const reposData = await reposRes.json();
+      console.log("User data ", userData);
+      console.log("Repos data ", reposData);
+      setUserData(userData);
+      setUserRepos(reposData);
       setIsLoading(false);
-      if (!res.ok) {
+      if (!userRes.ok) {
         setUserData(null);
         if (res.status === 404) {
           setErr("User not found");
@@ -41,7 +48,7 @@ function App() {
         {userData && !isLoading ? (
           <>
             <ProfileCard userData={userData} />
-            <Repos />
+            <Repos repos={userRepos} />
           </>
         ) : isLoading ? null : (
           <ShowMessages err={err} />

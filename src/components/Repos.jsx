@@ -1,4 +1,5 @@
-const Repos = () => {
+const Repos = ({ repos }) => {
+  console.log("Repos in repo ", repos);
   return (
     <div className="user-repos-wrapper">
       <p className="repos-heading">Top Repositories</p>

@@ -40,7 +40,7 @@ function ProfileCard({ userData }) {
             {userData.location ? userData.location : "Location not set"}
           </p>
           <p className="user-link">
-            {userData.hireable ? userData.hireable : "Hireable not set"}
+            {userData.hireable ? "Hireable" : "Hireable not set"}
           </p>
         </div>
       </div>
