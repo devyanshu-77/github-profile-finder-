@@ -33,6 +33,9 @@ function App() {
         setErr("Oops something went wrong try again later");
         return;
       }
+      if (!reposRes.ok || reposData.length == 0) {
+        setUserRepos(null);
+      }
     } catch (error) {
       setIsLoading(false);
     }
